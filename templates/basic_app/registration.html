@@ -1,0 +1,28 @@
+{% extends 'basic_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+  <div class="jumbotron">
+    <div style="background:pink !important" class="jumbotron">
+    {% if registered %}
+        <h1> THANK YOU FOR REGISTERING! </h1>
+    {% else %}
+        <h2> YOU CAN REGISTER TO APSS HERE! </h2>
+        <h3> Please fill out the form below: </h3>
+
+
+        <form enctype="multipart/form-data" method="POST">
+
+              {% csrf_token %}
+              {{ user_form.as_p }}
+              {{ profile_form.as_p }}
+              <div class="contentcontainer med left" style="float: right">
+              <input type="submit"name=""value="Register">
+              </div>
+
+        </form>
+      {% endif %}
+   </div>
+
+{% endblock %}

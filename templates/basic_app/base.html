@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href= "{% static "css/mystyle.css"%}"/>
+  </head>
+  <body>
+    <nav class='navbar navbar-default navbar-static-top'>
+      <div class="containers">
+        <ul class="nav navbar-nav">
+          <li><a class=" nav navbar-nav">
+          <li><a class="navbar-APSS" href="{% url 'index' %}">HOME</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">ADMIN</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:register' %}">REGISTER</a></li>
+
+
+
+
+          {% if user.is_authenticated %}
+          <li><a class='navbar-link' href="{% url 'logout'%}">LOGOUT</a></li>
+          {% else %}
+          <li><a class='navbar-link' href="{% url 'basic_app:user_login' %}">LOGIN</a></li>
+
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      {% block body_block %}
+      {% endblock %}
+
+    </div>
+    <center>
+    <img src ="/static/images/apssimage.jpg" alt = "image did not show!">
+  </center>
+<p> <center> Artificial Penetration Software Solutions is a Software Development Company in Hyderabad  </p>
+
+
+<hr>
+
+
+
+  <footer>
+    <p> <center> ARTIFICIAL PENETRATION SOFTWARE SOLUTIONS </p>
+  </footer>
+
+
+
+
+  </body>
+</html>
